@@ -7,43 +7,80 @@ import Icon from '../icon/index';
 import deprecationWarning from '../../utils/deprecationWarning';
 
 /**
- * A full notification page to indicate results
+ * @description A full notification page to indicate results
+ * @example
+ * import React from 'react';
+ * import { Msg, Footer, FooterLinks, FooterLink, FooterText } from '../../../build/packages';
+ * import Page from '../../component/page';
+ * const SuccessFooter = ()=>(
+ *     <Footer>
+ *         <FooterLinks>
+ *             <FooterLink href="#">Footer Link</FooterLink>
+ *         </FooterLinks>
+ *         <FooterText>
+ *             Copyright © 2008-2016 weui.io
+ *         </FooterText>
+ *     </Footer>
+ * );
+ * const SuccessMsg = (props) => {
+ *     return (
+ *     <Page className="msg_success">
+ *         <Msg
+ *             type="success"
+ *             title="Action Success"
+ *             description="We have received your feedback"
+ *             buttons={[{
+ *                 type: 'primary',
+ *                 label: 'Ok',
+ *                 onClick: props.history ? props.history.goBack : false
+ *             }, {
+ *                 type: 'default',
+ *                 label: 'Cancel',
+ *                 onClick: props.history ? props.history.goBack : false
+ *             }]}
+ *             footer={SuccessFooter}
+ *         />
+ *     </Page>
+ *     )
+ * }
+ * export default SuccessMsg;
  *
  */
+
 class Msg extends Component {
     static propTypes = {
         /**
-         * Icon type
+         * @property {PropTypes.string} type - Icon type
          *
          */
         type: PropTypes.string,
         /**
-         * Object array of Buttons, require at least `label` property
+         * @property {PropTypes.array} buttons - Object array of Buttons, require at least `label` property
          *
          */
         buttons: PropTypes.array,
         /**
-         * Page Title
+         * @property {PropTypes.string} title - Page Title
          *
          */
         title: PropTypes.string,
         /**
-         * Page Description
+         * @property {PropTypes.string} description - Page Description
          *
          */
         description: PropTypes.string,
         /**
-         * deprecated property from 0.4.x
+         * @property {PropTypes.string} extraHref - deprecated property from 0.4.x
          *
          */
         extraHref: PropTypes.string,
         /**
-         * deprecated property from 0.4.x
+         * @property {PropTypes.string} extraText - deprecated property from 0.4.x
          *
          */
         extraText: PropTypes.string,
         /**
-         * Footer Element of Page
+         * @property {PropTypes.any} footer - Footer Element of Page
          *
          */
         footer: PropTypes.any

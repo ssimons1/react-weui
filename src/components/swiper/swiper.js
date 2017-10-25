@@ -6,49 +6,50 @@ import classNames from '../../utils/classnames';
 import './swiper.less';
 
 /**
- *   The ultimate mobile swipe component
+ * @description The ultimate mobile swipe component
  *
  */
+
 class Swiper extends Component {
 
     static propTypes = {
         /**
-         * height for the container, number in px
+         * @property {PropTypes.number} height - height for the container, number in px
          *
          */
         height: PropTypes.number,
         /**
-         * width for the container, number in px
+         * @property {PropTypes.number} width - width for the container, number in px
          *
          */
         width: PropTypes.number,
         /**
-         * threshold for the swiper, number in px
+         * @property {PropTypes.number} threshold - threshold for the swiper, number in px
          *
          */
         threshold: PropTypes.number,
         /**
-         * speed for the slide transition, number in ms
+         * @property {PropTypes.number} speed - speed for the slide transition, number in ms
          *
          */
         speed: PropTypes.number,
         /**
-         * default slider index
+         * @property {PropTypes.number} defaultIndex - default slider index
          *
          */
         defaultIndex: PropTypes.number,
         /**
-         * direction of swiper
+         * @property {PropTypes.string} direction - direction of swiper
          *
          */
         direction: PropTypes.oneOf(['vertical', 'horizontal']),
         /**
-         * show indicators
+         * @property {PropTypes.bool} indicators - show indicators
          *
          */
         indicators: PropTypes.bool,
         /**
-         * callback when slide change is trigger, pass indexs of (prev, next)
+         * @property {PropTypes.func} onChange - callback when slide change is trigger, pass indexs of (prev, next)
          *
          */
         onChange: PropTypes.func,

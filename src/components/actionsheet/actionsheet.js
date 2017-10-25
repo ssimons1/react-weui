@@ -5,32 +5,52 @@ import Mask from '../mask/index';
 import './actionsheet.less';
 
 /**
- * Used to display a collection of actions that contain a set of interactivity, including descriptions, links, and so on. Popup from the bottom, generally used to respond to user clicks on the page.
+ * @description Used to display a collection of actions that contain a set of interactivity, including descriptions, links, and so on. Popup from the bottom, generally used to respond to user clicks on the page.
+ * @example
+ * Visibility
+ * To use ActionSheet, you want to first setup a state variable to toggle it's visibility for show property and a callback function onRequestClose property when users wants to hide the ActionSheet.
+ * //inside your component state
+ * state = {
+ *     show: false
+ * }
+ * //button to toggle the ActionSheet
+ * <Button
+ *     onClick={ e => this.setState({ show: true }) }
+ * />
+ * //inside the render function
+ * <ActionSheet
+ *     show={ this.state.show }
+ *     onRequestClose={
+ *         //function to hide ActionSheet
+ *         e => this.setState({ show: false })
+ *     }
+ * />
  */
+
 class ActionSheet extends Component {
     static propTypes = {
         /**
-         * Array of Objects for menus, `label` property is Required
+         * @property {PropTypes.array} menus - Array of Objects for menus, `label` property is Required
          *
          */
         menus: PropTypes.array,
         /**
-         * Array of Objects for actions, `label` property is Required
+         * @property {PropTypes.array} actions - Array of Objects for actions, `label` property is Required
          *
          */
         actions: PropTypes.array,
         /**
-         * To display ActionSheet
+         * @property {PropTypes.bool} show -To display ActionSheet
          *
          */
         show: PropTypes.bool,
         /**
-         * Function triggers when user click on the mask
+         * @property {PropTypes.func} onRequestClose -Function triggers when user click on the mask
          *
          */
         onRequestClose: PropTypes.func,
         /**
-         * style: ios/android
+         * @property {PropTypes.string} type -style: ios/android
          */
         type: PropTypes.string,
     };

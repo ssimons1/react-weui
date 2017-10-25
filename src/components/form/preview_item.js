@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 /**
- * Preview Item for all purpose usage
+ * @description Preview Item for all purpose usage
  *
  */
 const PreviewItem = (props) => {
@@ -26,12 +26,12 @@ const PreviewItem = (props) => {
 
 PreviewItem.propTypes = {
     /**
-     * The label of item
+     * @property {PropTypes.string} label - The label of item
      *
      */
     label: PropTypes.string,
     /**
-     * Value of the label
+     * @property {PropTypes.string} value - Value of the label
      *
      */
     value: PropTypes.string,

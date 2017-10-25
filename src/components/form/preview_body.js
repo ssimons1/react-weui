@@ -4,7 +4,7 @@ import React from 'react';
 import classNames from '../../utils/classnames';
 
 /**
- * Content of Preview
+ * @description Content of Preview
  *
  */
 const PreviewBody = (props) => {

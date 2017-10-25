@@ -3,6 +3,10 @@
 import React from 'react';
 import classNames from '../../utils/classnames';
 
+/**
+ * @description Header of Preview
+ */
+
 const PreviewHeader = (props) => {
 
     const { className, children, ...others } = props;

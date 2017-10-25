@@ -4,7 +4,7 @@ import React from 'react';
 import classNames from '../../utils/classnames';
 
 /**
- * Preview Wrapper consists of `PreviewHeader`, `PreviewBody`, `PreviewFooter`, `PreviewItem`
+ * @description Preview Wrapper consists of `PreviewHeader`, `PreviewBody`, `PreviewFooter`, `PreviewItem`
  *
  */
 const Preview = (props) => {

@@ -4,54 +4,112 @@ import ReactDOM from 'react-dom';
 import classNames from '../../utils/classnames';
 
 /**
- *  A Slider is an element used to set a value, good choice when users think it as relative quantity rather than value
- *
+ * @description A Slider is an element used to set a value, good choice when users think it as relative quantity rather than value
+ * @example
+ * import React from 'react';
+ * import { Slider, CellsTitle, Button, ButtonArea } from '../../../build/packages';
+ * import Page from '../../component/page';
+ * class SliderDemo extends React.Component {
+ *     state = {
+ *         controlValue: 50
+ *     };
+ *     render() {
+ *         return (
+ *             <Page className="slider" title="Slider" subTitle="滑块" spacing>
+ *                 <CellsTitle>Basic Example</CellsTitle>
+ *                 <Slider
+ *                     min={1}
+ *                     max={5}
+ *                     step={1}
+ *                     onChange={ value => console.log(value) }
+ *                 />
+ *                 <CellsTitle>Disabled Example</CellsTitle>
+ *                 <Slider
+ *                     disabled
+ *                     onChange={ value => console.log(value) }
+ *                 />
+ *                 <CellsTitle>Controlled Example</CellsTitle>
+ *                 <Slider
+ *                     max={100}
+ *                     step={2}
+ *                     value={this.state.controlValue}
+ *                     onChange={ value => this.setState({ controlValue: value }) }
+ *                 />
+ *                 <ButtonArea>
+ *                     <Button
+ *                         size="small"
+ *                         onClick={()=> {
+ *                             if(this.state.controlValue >= 10) this.setState({ controlValue: this.state.controlValue - 10})
+ *                         }}>
+ *                         - 10
+ *                     </Button>
+ *                     <Button
+ *                         style={{marginLeft: '10px'}}
+ *                         size="small"
+ *                         onClick={()=> {
+ *                             if(this.state.controlValue <= 90) this.setState({ controlValue: this.state.controlValue + 10})
+ *                         }}>
+ *                         + 10
+ *                     </Button>
+ *                 </ButtonArea>
+ *                 <br/>
+ *                 <CellsTitle>No snap & No show value</CellsTitle>
+ *                 <Slider
+ *                     snapToValue={false}
+ *                     showValue={false}
+ *                 />
+ *             </Page>
+ *         );
+ *     }
+ * };
+ * export default SliderDemo
  */
+
 class Slider extends Component {
 
     static propTypes = {
         /**
-         * max value of the slider
+         * @property {PropTypes.number} max - max value of the slider
          *
          */
         max: PropTypes.number,
         /**
-         * min value of the slider
+         * @property {PropTypes.number} min - min value of the slider
          *
          */
         min: PropTypes.number,
         /**
-         * the offset between two number in the slider
+         * @property {PropTypes.number} step - the offset between two number in the slider
          *
          */
         step: PropTypes.number,
         /**
-         * display the value indicator
+         * @property {PropTypes.bool} showValue - display the value indicator
          *
          */
         showValue: PropTypes.bool,
         /**
-         * whether input is disabled
+         * @property {PropTypes.bool} disabled - whether input is disabled
          *
          */
         disabled: PropTypes.bool,
         /**
-         * slider value when use as controll element
+         * @property {PropTypes.number} value - slider value when use as controll element
          *
          */
         value: PropTypes.number,
         /**
-         * slider value when use as non-controll element, use with onChange
+         * @property {PropTypes.number} defaultValue - slider value when use as non-controll element, use with onChange
          *
          */
         defaultValue: PropTypes.number,
         /**
-         * callback when slider value change, pass value and event instance
+         * @property {PropTypes.func} onChange - callback when slider value change, pass value and event instance
          *
          */
         onChange: PropTypes.func,
         /**
-         * callback when slider value change, pass value and event instance
+         * @property {PropTypes.bool} snapToValue - callback when slider value change, pass value and event instance
          *
          */
         snapToValue: PropTypes.bool,

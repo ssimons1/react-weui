@@ -7,49 +7,107 @@ import LoadMore from '../loadmore';
 import './infiniteloader.less';
 
 /**
- *  A Container trigger loading once it reach certain scrolltop
+ * @description A Container trigger loading once it reach certain scrolltop
+ * @example
+ * import React from 'react';
+ * import ReactDOM from 'react-dom';
+ * import {
+ *     InfiniteLoader,
+ *     Cells,
+ *     CellsTitle,
+ *     Cell,
+ *     CellBody,
+ *     CellFooter
+ * } from '../../../build/packages';
+ * import Page from '../../component/page';
+ * class InfiniteDemo extends React.Component {
+ *     constructor(props){
+ *         super(props)
+ *         this.state = {
+ *             items: [...Array(20).keys()]
+ *         }
+ *     }
+ *     render(){
+ *         return (
+ *             <InfiniteLoader
+ *                 onLoadMore={ (resolve, finish) => {
+ *                     //mock request
+ *                     setTimeout( ()=> {
+ *                         if(this.state.items.length > 22){
+ *                             finish()
+ *                         }else{
+ *                             this.setState({
+ *                                 items: this.state.items.concat([this.state.items.length])
+ *                             }, ()=> resolve())
+ *                         }
+ *                     }, 1000)
+ *                 }}
+ *             >
+ *             <Page className="infinite" title="Infinite Loader" subTitle="滚动加载" >
+ *                     <CellsTitle>List with 22 Max</CellsTitle>
+ *                     <Cells>
+ *                     {
+ *                         this.state.items.map( (item, i) => {
+ *                             return (
+ *                                 <Cell href="javascript:;" key={i} access>
+ *                                     <CellBody>
+ *                                         {item}
+ *                                     </CellBody>
+ *                                     <CellFooter/>
+ *                                 </Cell>
+ *                             )
+ *                         })
+ *                     }
+ *                     </Cells>
+ *             </Page>
+ *             </InfiniteLoader>
+ *         )
+ *     }
+ * }
+ * export default InfiniteDemo;
  *
  */
+
 class InfiniteLoader extends Component{
 
      static propTypes = {
         /**
-         * height for the container, use string like '10px', default for '100vh'
+         * @property {PropTypes.string} height - height for the container, use string like '10px', default for '100vh'
          *
          */
         height: PropTypes.string,
         /**
-         * element(icon) for default loader when there is no more content
+         * @property {PropTypes.object} loaderDefaultIcon - element(icon) for default loader when there is no more content
          *
          */
         loaderDefaultIcon: PropTypes.object,
         /**
-         * element(icon) for loading loader
+         * @property {PropTypes.object} loaderLoadingIcon - element(icon) for loading loader
          *
          */
         loaderLoadingIcon: PropTypes.object,
         /**
-         * percentage of scrollTop to trigger loading
+         * @property {PropTypes.number} triggerPercent - percentage of scrollTop to trigger loading
          *
          */
         triggerPercent: PropTypes.number,
         /**
-         * callback when user scroll the content, pass event
+         * @property {PropTypes.func} onScroll - callback when user scroll the content, pass event
          *
          */
         onScroll: PropTypes.func,
         /**
-         * callback when user did not scroll for 150ms
+         * @property {PropTypes.func} onScrollEnd - callback when user did not scroll for 150ms
          *
          */
         onScrollEnd: PropTypes.func,
         /**
-         * callback when it's requesting for more content, pass resolve function and finish function
+         * @property {PropTypes.func} onLoadMore - callback when it's requesting for more content, pass resolve function and finish function
          *
          */
         onLoadMore: PropTypes.func,
         /**
-         * disable the loader
+         * @property {PropTypes.bool} disable - disable the loader
          *
          */
         disable: PropTypes.bool,

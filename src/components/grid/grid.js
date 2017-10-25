@@ -5,23 +5,40 @@ import GridIcon from './grid_icon';
 import GridLabel from './grid_label';
 
 /**
- * WeUI Grid wrapper, contain elements of `GridIcon` and `GridLabel`
+ * @description WeUI Grid wrapper, contain elements of `GridIcon` and `GridLabel`
+ * @example
+ * import React from 'react';
+ * import { Grids } from '../../../build/packages';
+ * import Page from '../../component/page';
+ * import iconSrc from './icon_tabbar.png';
+ * const data = Array(9).fill({
+ *     icon: <img src={iconSrc}/>,
+ *     label: 'Grid',
+ *     href: 'javascript:;'
+ * })
+ * const GridDemo = (props) => (
+ *     <Page className="grid" title="Grid" subTitle="九宫格">
+ *         <Grids data={data}/>
+ *     </Page>
+ * );
+ * export default GridDemo;
  *
  */
+
 export default class Grid extends React.Component {
     static propTypes = {
       /**
-       * Label string for grid
+       * @property {PropTypes.string} label - Label string for grid
        *
        */
       label: PropTypes.string,
       /**
-       * Icon placeholder
+       * @property {PropTypes.any} icon - Icon placeholder
        *
        */
       icon: PropTypes.any,
       /**
-       * pass in an component to replace Grid but apply same style
+       * @property {PropTypes.func} component - pass in an component to replace Grid but apply same style
        */
       component: PropTypes.func
     };

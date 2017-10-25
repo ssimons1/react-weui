@@ -3,19 +3,52 @@ import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
 /**
- *  Button usage：OK(primary)、Cancel(default)、Warn(warn).
- *
+ * @description Button usage：OK(primary)、Cancel(default)、Warn(warn).
+ * @example
+ * import React from 'react';
+ * import {Button, ButtonArea} from '../../../build/packages';
+ * import Page from '../../component/page';
+ * import './button.less';
+ * export default class ButtonDemo extends React.Component {
+ *     render() {
+ *         return (
+ *             <Page className="button" title="Button" subTitle="按钮" spacing>
+ *                 <Button>Normal</Button>
+ *                 <Button disabled>Disabled</Button>
+ *                 <ButtonArea>
+ *                     <Button type="default">Secondary Normal</Button>
+ *                     <Button type="default" disabled>Secondary Disabled</Button>
+ *                 </ButtonArea>
+ *                 <ButtonArea direction="horizontal">
+ *                     <Button type="warn">Warn Normal</Button>
+ *                     <Button type="warn" disabled>Disabled</Button>
+ *                 </ButtonArea>
+ *                 <div className="button-sp-area">
+ *                     <Button type="primary" plain>Button</Button>
+ *                     <Button type="primary" plain disabled>Button</Button>
+ *                     <Button type="default" plain>Button</Button>
+ *                     <Button size="small">Mini</Button>
+ *                     <Button type="default" size="small">Mini</Button>
+ *                     <Button type="warn" size="small">Mini</Button>
+ *                 </div>
+ *             </Page>
+ *         );
+ *     }
+ * };
  */
 export default class Button extends React.Component {
     static propTypes = {
+        /**
+         * @property {PropTypes.bool} disabled
+         */
         disabled: PropTypes.bool,
         /**
-         * Options: primary, default, warn, vcode
+         * @property {PropTypes.string} type - Options: primary, default, warn, vcode
          *
          */
         type: PropTypes.string,
         /**
-         * Options: normal, small
+         * @property {PropTypes.string} size - Options: normal, small
          *
          */
         size: PropTypes.string,

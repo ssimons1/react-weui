@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from '../../utils/classnames';
 
+/**
+ * @description PickerGroup component
+ */
+
 class PickerGroup extends Component {
     static propTypes = {
         height: PropTypes.number,

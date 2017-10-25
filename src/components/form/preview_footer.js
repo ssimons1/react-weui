@@ -4,7 +4,7 @@ import React from 'react';
 import classNames from '../../utils/classnames';
 
 /**
- * Footer of Preview, consists of actions
+ * @description Footer of Preview, consists of actions
  *
  */
 const PreviewFooter = (props) => {
